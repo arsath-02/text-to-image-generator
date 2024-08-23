@@ -66,7 +66,7 @@ async def generate_image_and_description(request: ImageRequest):
     img_str = base64.b64encode(buffered.getvalue()).decode()
 
     description_prompt = f"Describe the following image: {prompt}"
-    description = description_model(description_prompt, max_length=50, num_return_sequences=1)[0]['generated_text']
+    description = description_model(description_prompt, max_length=100, num_return_sequences=1)[0]['generated_text']
 
     return {"image": img_str, "description": description}
 
